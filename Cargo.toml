@@ -1,6 +1,6 @@
 [package]
 name = "starkom-poseidon2"
-version = "1.0.0"
+version = "1.0.1"
 description = "Starkom's implementation of the Poseidon2 algebraic hash."
 license = "Apache-2.0"
 repository = "https://github.com/libernet-xyz/poseidon2.git"
@@ -13,7 +13,7 @@ crate-type = ["rlib", "cdylib"]
 [dependencies]
 blstrs = { version = "0.7.1", optional = true }
 ff = { version = "0.13.1", features = ["derive"] }
-starkom-bluesky = { path = "bluesky", optional = true }
+starkom-bluesky = { path = "bluesky", version = "2.0.0", optional = true }
 
 [dev-dependencies]
 primitive-types = "0.14.0"

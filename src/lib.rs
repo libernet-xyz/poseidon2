@@ -1,8 +1,8 @@
 // Copyright 2026 The Libernet Team
 // SPDX-License-Identifier: Apache-2.0
 
-pub mod params;
-pub mod poseidon;
+mod params;
+mod poseidon;
 
 #[cfg(feature = "bluesky")]
 pub mod bluesky;

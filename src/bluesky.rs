@@ -162,6 +162,10 @@ mod tests {
                 parse_scalar("0x1e161d647427e32a02a7d21edee0ad9de18d7070b0e01faf4dfdc127a737826a"),
             ]
         );
+        assert_eq!(
+            hash_t3_0(&[42.into()]),
+            parse_scalar("0x302e6d6d782c1367974698e051d9b55e18060b19393a4f0ac4b66f992bd5a5eb")
+        );
     }
 
     #[test]
@@ -173,6 +177,10 @@ mod tests {
                 parse_scalar("0x69233d2461effb6b25dbec14086d466f3bf668ef2a38759fa5cb433bedf25778"),
                 parse_scalar("0x53ee1c0f7bf24718f3686f0c3d4635e1628b992e9fefa9c092daa50c7db87fb8"),
             ]
+        );
+        assert_eq!(
+            hash_t3_0(&[1.into(), 2.into()]),
+            parse_scalar("0x2a24882111b586a835203bdeb7a97d8489e410eadf12a495624f49b729528873")
         );
     }
 
@@ -186,6 +194,10 @@ mod tests {
                 parse_scalar("0x16f44c455c39bdabc7b77e2dbf089a0b0ac88a31b0ae9d39755f14b41d039e0c"),
             ]
         );
+        assert_eq!(
+            hash_t3_0(&[3.into(), 4.into(), 5.into()]),
+            parse_scalar("0x160be03feff499f1256ce2404ff9ee026fc378b6a91d434746bab98aafaecb63")
+        );
     }
 
     #[test]
@@ -198,6 +210,10 @@ mod tests {
                 parse_scalar("0x0061a9e7aa5a891cf8313d667039d29f7b0535866baf43fc0a87547bafcff275"),
             ]
         );
+        assert_eq!(
+            hash_t3_0(&[6.into(), 7.into(), 8.into(), 9.into()]),
+            parse_scalar("0x63d491b523ae737f62f117ef5affb8353996b67034ddaeb8586b574678ab440a")
+        );
     }
 
     #[test]
@@ -209,6 +225,10 @@ mod tests {
                 parse_scalar("0x6968c301186d76def97ee0d7bcc1f426b34df8f2e04a3afdeaa1acd8f9070d76"),
                 parse_scalar("0x728f9ec6a9a91884c02c22075f6c62c92c9b7d0e350c51db30b0f34d435b8f82"),
             ]
+        );
+        assert_eq!(
+            hash_t3_0(&[10.into(), 11.into(), 12.into(), 13.into(), 14.into()]),
+            parse_scalar("0x329255ad3db8a69a50a2a1f63fb4046d06d5bc6de30bf79bfe4138f4c93201df")
         );
     }
 
@@ -223,6 +243,10 @@ mod tests {
                 parse_scalar("0x4ba8b81b7409920310da246ad211df71f0c92b86d885e2b2850906a1c9fd0731"),
             ]
         );
+        assert_eq!(
+            hash_t4_0(&[42.into()]),
+            parse_scalar("0x109a9fd885b0047b036489dad6d0ca97749f6a9b21d9fc2c1cb7d25952e453a0")
+        );
     }
 
     #[test]
@@ -235,6 +259,10 @@ mod tests {
                 parse_scalar("0x5218f71044490008f3713824dfa6be57a708ad295ca8df9fb4176340d61fb681"),
                 parse_scalar("0x2c37a603216ece26caf18c1cc9a0e909262f61f014075d5eb975ed853bcaed6b"),
             ]
+        );
+        assert_eq!(
+            hash_t4_0(&[1.into(), 2.into()]),
+            parse_scalar("0x7c4e380d8a3935c0e8073420573f5b6aaf9ed2c727afc4da64f12401ab355faf")
         );
     }
 
@@ -249,6 +277,10 @@ mod tests {
                 parse_scalar("0x4f3563e16ae6ba5cdc036289e47628fb890cd8e3e3295ee8206a31b19742b0a8"),
             ]
         );
+        assert_eq!(
+            hash_t4_0(&[3.into(), 4.into(), 5.into()]),
+            parse_scalar("0x2582eca7bed4bca9d4326a9e2ca601e0b3779582bb5173318a4e19ab005e7495")
+        );
     }
 
     #[test]
@@ -262,6 +294,10 @@ mod tests {
                 parse_scalar("0x0aaadc8d120b5ba7e6b10a0d0055eb8cce41ef0134a0c4a6d057bceec8433fae"),
             ]
         );
+        assert_eq!(
+            hash_t4_0(&[6.into(), 7.into(), 8.into(), 9.into()]),
+            parse_scalar("0x6b13720a0ebd34f13327023c0232a3a3421f88d50b627bacfd114491ae48bfaa")
+        );
     }
 
     #[test]
@@ -274,6 +310,10 @@ mod tests {
                 parse_scalar("0x79f1da2d204aa97c4256d321055eac279959efeff119a32e106220ef69699d4f"),
                 parse_scalar("0x3ba12f3c9a2916b9bd891512147dad141d049875c7d1d5119edf815eef7dc05d"),
             ]
+        );
+        assert_eq!(
+            hash_t4_0(&[10.into(), 11.into(), 12.into(), 13.into(), 14.into()]),
+            parse_scalar("0x4f07a42cf3cd73f35eeb9b42bff06b11e1c7ebe0fd8f65b7fab0dd5d551f1c6c")
         );
     }
 }

@@ -100,7 +100,7 @@ pub(crate) fn permutation<C: Config<F, T>, F: PrimeField, const T: usize>(
 /// Generic Poseidon2 implementation over the prime field `F` with state size `T`.
 ///
 /// `inputs` must not be empty.
-pub fn hash<C: Config<F, T>, F: PrimeField, const T: usize>(inputs: &[F]) -> F {
+pub fn hash<C: Config<F, T>, F: PrimeField, const T: usize>(inputs: &[F]) -> [F; T] {
     assert!(!inputs.is_empty());
     let mut state = [F::ZERO; T];
     for chunk in inputs.chunks(T - 1) {
@@ -109,5 +109,10 @@ pub fn hash<C: Config<F, T>, F: PrimeField, const T: usize>(inputs: &[F]) -> F {
         }
         state = permutation::<C, F, T>(state);
     }
-    state[0]
+    state
+}
+
+/// Convenience function for hashing with Poseidon2 and squeezing the first element.
+pub fn hash0<C: Config<F, T>, F: PrimeField, const T: usize>(inputs: &[F]) -> F {
+    hash::<C, F, T>(inputs)[0]
 }

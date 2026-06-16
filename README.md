@@ -1,7 +1,7 @@
 # Poseidon2
 
 [![CI](https://img.shields.io/github/actions/workflow/status/libernet-xyz/poseidon2/ci.yml?label=CI)](https://github.com/libernet-xyz/poseidon2/actions/workflows/ci.yml)
-[![crates.io](https://img.shields.io/crates/v/starkom-poseidon2.svg)](https://crates.io/crates/starkom-poseidon2)
+[![crates.io](https://img.shields.io/crates/v/starkom-poseidon2)](https://crates.io/crates/starkom-poseidon2)
 
 ## Overview
 

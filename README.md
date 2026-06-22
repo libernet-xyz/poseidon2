@@ -2,6 +2,7 @@
 
 [![CI](https://img.shields.io/github/actions/workflow/status/libernet-xyz/poseidon2/ci.yml?label=CI)](https://github.com/libernet-xyz/poseidon2/actions/workflows/ci.yml)
 [![crates.io](https://img.shields.io/crates/v/starkom-poseidon2)](https://crates.io/crates/starkom-poseidon2)
+[![license](https://img.shields.io/crates/l/starkom-poseidon2)](https://github.com/libernet-xyz/poseidon2/blob/main/LICENSE)
 
 ## Overview
 

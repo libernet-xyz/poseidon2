@@ -1,4 +1,4 @@
-use ff::PrimeField;
+use starkom_ff::PrimeField;
 
 /// Poseidon2 instance configuration trait.
 ///

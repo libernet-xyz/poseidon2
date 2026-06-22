@@ -14,9 +14,6 @@ crate-type = ["rlib", "cdylib"]
 starkom-bluesky = { version = "3.0.0", optional = true }
 starkom-ff = "2.0.1"
 
-[dev-dependencies]
-primitive-types = "0.14.0"
-
 [features]
 default = ["bluesky"]
 bls12_381 = []

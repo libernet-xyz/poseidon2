@@ -99,12 +99,9 @@ pub type BlsConfig4 = BlsConfig<4>;
 #[cfg(test)]
 mod tests {
     use super::*;
-    use primitive_types::U256;
-    use starkom_ff::Field;
 
     fn parse_scalar(s: &'static str) -> Scalar {
-        let u256: U256 = s.parse().unwrap();
-        Scalar::try_from_le_bytes(&u256.to_little_endian()).unwrap()
+        s.parse().unwrap()
     }
 
     fn hash_t3(inputs: &[Scalar]) -> [Scalar; 3] {

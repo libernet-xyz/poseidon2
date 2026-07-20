@@ -23,7 +23,7 @@ and T=4 (R=3, C=1).
 
 ## Usage
 
-The following example functions instantiate Poseidon with T=3 and T=4 respectively, squeezing a
+The following example functions instantiate Poseidon2 with T=3 and T=4 respectively, squeezing a
 single element from the output. Both use a single element for capacity.
 
 ```rs

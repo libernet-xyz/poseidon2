@@ -2,9 +2,8 @@ use starkom_ff::PrimeField;
 
 /// Poseidon2 instance configuration trait.
 ///
-/// NOTE: throughout this Poseidon2 implementation we're always assuming that the capacity is 1, so
-/// the state width `T` is always equal to the absorption rate plus 1.
-pub trait Config<F: PrimeField, const T: usize> {
+/// `R` is the absorption rate and `C` is the capacity; the state size `T` must be equal to `R+C`.
+pub trait Config<F: PrimeField, const T: usize, const R: usize, const C: usize> {
     /// Returns the number of full rounds on each side (they're 8 in total).
     fn num_full_rounds() -> usize;
 
@@ -12,7 +11,9 @@ pub trait Config<F: PrimeField, const T: usize> {
     fn num_partial_rounds() -> usize;
 
     /// Returns the total number of rounds.
-    fn num_total_rounds() -> usize;
+    fn num_total_rounds() -> usize {
+        Self::num_full_rounds() * 2 + Self::num_partial_rounds()
+    }
 
     /// Applies an optimal S-box for this field.
     ///
@@ -48,40 +49,62 @@ fn linear<F: PrimeField, const T: usize>(matrix: &[F], state: [F; T]) -> [F; T] 
     result
 }
 
-fn external_linear<C: Config<F, T>, F: PrimeField, const T: usize>(state: [F; T]) -> [F; T] {
-    linear::<F, T>(C::get_external_matrix(), state)
+fn external_linear<
+    Cfg: Config<F, T, R, C>,
+    F: PrimeField,
+    const T: usize,
+    const R: usize,
+    const C: usize,
+>(
+    state: [F; T],
+) -> [F; T] {
+    linear::<F, T>(Cfg::get_external_matrix(), state)
 }
 
-fn internal_linear<C: Config<F, T>, F: PrimeField, const T: usize>(state: [F; T]) -> [F; T] {
-    linear::<F, T>(C::get_internal_matrix(), state)
+fn internal_linear<
+    Cfg: Config<F, T, R, C>,
+    F: PrimeField,
+    const T: usize,
+    const R: usize,
+    const C: usize,
+>(
+    state: [F; T],
+) -> [F; T] {
+    linear::<F, T>(Cfg::get_internal_matrix(), state)
 }
 
-pub(crate) fn permutation<C: Config<F, T>, F: PrimeField, const T: usize>(
+pub(crate) fn permutation<
+    Cfg: Config<F, T, R, C>,
+    F: PrimeField,
+    const T: usize,
+    const R: usize,
+    const C: usize,
+>(
     mut state: [F; T],
 ) -> [F; T] {
-    let num_full_rounds = C::num_full_rounds();
-    let num_partial_rounds = C::num_partial_rounds();
-    let num_total_rounds = C::num_total_rounds();
+    let num_full_rounds = Cfg::num_full_rounds();
+    let num_partial_rounds = Cfg::num_partial_rounds();
+    let num_total_rounds = Cfg::num_total_rounds();
     assert_eq!(num_total_rounds, 2 * num_full_rounds + num_partial_rounds);
 
-    let c = C::get_round_constants();
+    let c = Cfg::get_round_constants();
 
-    state = external_linear::<C, F, T>(state);
+    state = external_linear::<Cfg, F, T, R, C>(state);
 
     for r in 0..num_full_rounds {
         for i in 0..T {
             state[i] += c[r * T + i];
         }
         for i in 0..T {
-            state[i] = C::sbox(state[i]);
+            state[i] = Cfg::sbox(state[i]);
         }
-        state = external_linear::<C, F, T>(state);
+        state = external_linear::<Cfg, F, T, R, C>(state);
     }
 
     for r in num_full_rounds..(num_full_rounds + num_partial_rounds) {
         state[0] += c[r * T];
-        state[0] = C::sbox(state[0]);
-        state = internal_linear::<C, F, T>(state);
+        state[0] = Cfg::sbox(state[0]);
+        state = internal_linear::<Cfg, F, T, R, C>(state);
     }
 
     for r in (num_full_rounds + num_partial_rounds)..num_total_rounds {
@@ -89,9 +112,9 @@ pub(crate) fn permutation<C: Config<F, T>, F: PrimeField, const T: usize>(
             state[i] += c[r * T + i];
         }
         for i in 0..T {
-            state[i] = C::sbox(state[i]);
+            state[i] = Cfg::sbox(state[i]);
         }
-        state = external_linear::<C, F, T>(state);
+        state = external_linear::<Cfg, F, T, R, C>(state);
     }
 
     state
@@ -100,19 +123,35 @@ pub(crate) fn permutation<C: Config<F, T>, F: PrimeField, const T: usize>(
 /// Generic Poseidon2 implementation over the prime field `F` with state size `T`.
 ///
 /// `inputs` must not be empty.
-pub fn hash<C: Config<F, T>, F: PrimeField, const T: usize>(inputs: &[F]) -> [F; T] {
+pub fn hash<
+    Cfg: Config<F, T, R, C>,
+    F: PrimeField,
+    const T: usize,
+    const R: usize,
+    const C: usize,
+>(
+    inputs: &[F],
+) -> [F; T] {
     assert!(!inputs.is_empty());
     let mut state = [F::ZERO; T];
-    for chunk in inputs.chunks(T - 1) {
+    for chunk in inputs.chunks(T - C) {
         for i in 0..chunk.len() {
             state[i] += chunk[i];
         }
-        state = permutation::<C, F, T>(state);
+        state = permutation::<Cfg, F, T, R, C>(state);
     }
     state
 }
 
 /// Convenience function for hashing with Poseidon2 and squeezing the first element.
-pub fn hash0<C: Config<F, T>, F: PrimeField, const T: usize>(inputs: &[F]) -> F {
-    hash::<C, F, T>(inputs)[0]
+pub fn hash0<
+    Cfg: Config<F, T, R, C>,
+    F: PrimeField,
+    const T: usize,
+    const R: usize,
+    const C: usize,
+>(
+    inputs: &[F],
+) -> F {
+    hash::<Cfg, F, T, R, C>(inputs)[0]
 }

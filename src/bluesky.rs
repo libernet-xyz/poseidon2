@@ -6,17 +6,13 @@ use std::sync::LazyLock;
 /// Poseidon configuration for the BlueSky field.
 pub struct BlueSkyConfig<const T: usize> {}
 
-impl poseidon::Config<Scalar, 3> for BlueSkyConfig<3> {
+impl poseidon::Config<Scalar, 3, 2, 1> for BlueSkyConfig<3> {
     fn num_full_rounds() -> usize {
         4
     }
 
     fn num_partial_rounds() -> usize {
         56
-    }
-
-    fn num_total_rounds() -> usize {
-        64
     }
 
     fn sbox(x: Scalar) -> Scalar {
@@ -48,17 +44,13 @@ impl poseidon::Config<Scalar, 3> for BlueSkyConfig<3> {
     }
 }
 
-impl poseidon::Config<Scalar, 4> for BlueSkyConfig<4> {
+impl poseidon::Config<Scalar, 4, 3, 1> for BlueSkyConfig<4> {
     fn num_full_rounds() -> usize {
         4
     }
 
     fn num_partial_rounds() -> usize {
         56
-    }
-
-    fn num_total_rounds() -> usize {
-        64
     }
 
     fn sbox(x: Scalar) -> Scalar {
@@ -102,25 +94,25 @@ mod tests {
     use starkom_bluesky::{from_const, parse_scalar};
 
     fn hash_t3(inputs: &[Scalar]) -> [Scalar; 3] {
-        poseidon::hash::<BlueSkyConfig3, Scalar, 3>(inputs)
+        poseidon::hash::<BlueSkyConfig3, Scalar, 3, 2, 1>(inputs)
     }
 
     fn hash_t3_0(inputs: &[Scalar]) -> Scalar {
-        poseidon::hash0::<BlueSkyConfig3, Scalar, 3>(inputs)
+        poseidon::hash0::<BlueSkyConfig3, Scalar, 3, 2, 1>(inputs)
     }
 
     fn hash_t4(inputs: &[Scalar]) -> [Scalar; 4] {
-        poseidon::hash::<BlueSkyConfig4, Scalar, 4>(inputs)
+        poseidon::hash::<BlueSkyConfig4, Scalar, 4, 3, 1>(inputs)
     }
 
     fn hash_t4_0(inputs: &[Scalar]) -> Scalar {
-        poseidon::hash0::<BlueSkyConfig4, Scalar, 4>(inputs)
+        poseidon::hash0::<BlueSkyConfig4, Scalar, 4, 3, 1>(inputs)
     }
 
     #[test]
     fn test_permutation_t3() {
         assert_eq!(
-            poseidon::permutation::<BlueSkyConfig3, Scalar, 3>([
+            poseidon::permutation::<BlueSkyConfig3, Scalar, 3, 2, 1>([
                 from_const(0),
                 from_const(1),
                 from_const(2)
@@ -136,7 +128,7 @@ mod tests {
     #[test]
     fn test_permutation_t4() {
         assert_eq!(
-            poseidon::permutation::<BlueSkyConfig4, Scalar, 4>([
+            poseidon::permutation::<BlueSkyConfig4, Scalar, 4, 3, 1>([
                 from_const(0),
                 from_const(1),
                 from_const(2),

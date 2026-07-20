@@ -9,10 +9,13 @@
 This is Starkom's implementation of the
 [Poseidon2 algebraic hash](https://eprint.iacr.org/2023/323).
 
-The implementation is generic and works on any prime field, but we always allocate exactly 1 state
-element for capacity, resulting in 128-bit security.
+This crate uses version 2 of the permutation. For version 1 see the
+[`starkom-poseidon`](https://crates.io/crates/starkom-poseidon) crate.
 
-We also provide configurations for the BLS12-381 and BlueSky prime fields, for T=3 and T=4.
+The implementation is generic and works on any prime field.
+
+Configurations for the BLS12-381 and BlueSky prime fields are provided; they support T=3 (R=2, C=1)
+and T=4 (R=3, C=1).
 
 > [!NOTE]
 > The BLS12-381 configurations are controlled by the `bls12_381` feature flag, which is disabled by
@@ -20,18 +23,18 @@ We also provide configurations for the BLS12-381 and BlueSky prime fields, for T
 
 ## Usage
 
-The following example functions instantiate Poseidon2 with T=3 and T=4 respectively, squeezing a
-single element from the output.
+The following example functions instantiate Poseidon with T=3 and T=4 respectively, squeezing a
+single element from the output. Both use a single element for capacity.
 
 ```rs
 use starkom_bluesky::Scalar;
 use starkom_poseidon2;
 
 fn hash_t3(inputs: &[Scalar]) -> Scalar {
-    starkom_poseidon2::hash::<starkom_poseidon2::bluesky::BlueSkyConfig3, Scalar, 3>(inputs)[0]
+    starkom_poseidon2::hash::<starkom_poseidon2::bluesky::BlueSkyConfig3, Scalar, 3, 2, 1>(inputs)[0]
 }
 
 fn hash_t4(inputs: &[Scalar]) -> Scalar {
-    starkom_poseidon2::hash::<starkom_poseidon2::bluesky::BlueSkyConfig4, Scalar, 4>(inputs)[0]
+    starkom_poseidon2::hash::<starkom_poseidon2::bluesky::BlueSkyConfig4, Scalar, 4, 3, 1>(inputs)[0]
 }
 ```

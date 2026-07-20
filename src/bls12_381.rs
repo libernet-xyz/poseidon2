@@ -6,17 +6,13 @@ use std::sync::LazyLock;
 /// Poseidon configuration for the BLS12-381 scalar field.
 pub struct BlsConfig<const T: usize> {}
 
-impl poseidon::Config<Scalar, 3> for BlsConfig<3> {
+impl poseidon::Config<Scalar, 3, 2, 1> for BlsConfig<3> {
     fn num_full_rounds() -> usize {
         4
     }
 
     fn num_partial_rounds() -> usize {
         56
-    }
-
-    fn num_total_rounds() -> usize {
-        64
     }
 
     fn sbox(x: Scalar) -> Scalar {
@@ -48,17 +44,13 @@ impl poseidon::Config<Scalar, 3> for BlsConfig<3> {
     }
 }
 
-impl poseidon::Config<Scalar, 4> for BlsConfig<4> {
+impl poseidon::Config<Scalar, 4, 3, 1> for BlsConfig<4> {
     fn num_full_rounds() -> usize {
         4
     }
 
     fn num_partial_rounds() -> usize {
         56
-    }
-
-    fn num_total_rounds() -> usize {
-        64
     }
 
     fn sbox(x: Scalar) -> Scalar {
@@ -105,25 +97,25 @@ mod tests {
     }
 
     fn hash_t3(inputs: &[Scalar]) -> [Scalar; 3] {
-        poseidon::hash::<BlsConfig3, Scalar, 3>(inputs)
+        poseidon::hash::<BlsConfig3, Scalar, 3, 2, 1>(inputs)
     }
 
     fn hash_t3_0(inputs: &[Scalar]) -> Scalar {
-        poseidon::hash0::<BlsConfig3, Scalar, 3>(inputs)
+        poseidon::hash0::<BlsConfig3, Scalar, 3, 2, 1>(inputs)
     }
 
     fn hash_t4(inputs: &[Scalar]) -> [Scalar; 4] {
-        poseidon::hash::<BlsConfig4, Scalar, 4>(inputs)
+        poseidon::hash::<BlsConfig4, Scalar, 4, 3, 1>(inputs)
     }
 
     fn hash_t4_0(inputs: &[Scalar]) -> Scalar {
-        poseidon::hash0::<BlsConfig4, Scalar, 4>(inputs)
+        poseidon::hash0::<BlsConfig4, Scalar, 4, 3, 1>(inputs)
     }
 
     #[test]
     fn test_permutation_t3() {
         assert_eq!(
-            poseidon::permutation::<BlsConfig3, Scalar, 3>([
+            poseidon::permutation::<BlsConfig3, Scalar, 3, 2, 1>([
                 Scalar::from_const(0),
                 Scalar::from_const(1),
                 Scalar::from_const(2)
@@ -139,7 +131,7 @@ mod tests {
     #[test]
     fn test_permutation_t4() {
         assert_eq!(
-            poseidon::permutation::<BlsConfig4, Scalar, 4>([
+            poseidon::permutation::<BlsConfig4, Scalar, 4, 3, 1>([
                 Scalar::from_const(0),
                 Scalar::from_const(1),
                 Scalar::from_const(2),

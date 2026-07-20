@@ -73,6 +73,7 @@ fn internal_linear<
     linear::<F, T>(Cfg::get_internal_matrix(), state)
 }
 
+/// Runs the Poseidon2 permutation.
 pub fn permutation<
     Cfg: Config<F, T, R, C>,
     F: PrimeField,

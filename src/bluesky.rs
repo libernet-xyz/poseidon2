@@ -4,9 +4,9 @@ use starkom_bluesky::Scalar;
 use std::sync::LazyLock;
 
 /// Poseidon configuration for the BlueSky field.
-pub struct BlueSkyConfig<const T: usize> {}
+pub struct BlueSkyConfig<const T: usize, const R: usize, const C: usize> {}
 
-impl poseidon::Config<Scalar, 3, 2, 1> for BlueSkyConfig<3> {
+impl poseidon::Config<Scalar, 3, 2, 1> for BlueSkyConfig<3, 2, 1> {
     fn num_full_rounds() -> usize {
         4
     }
@@ -44,7 +44,7 @@ impl poseidon::Config<Scalar, 3, 2, 1> for BlueSkyConfig<3> {
     }
 }
 
-impl poseidon::Config<Scalar, 4, 3, 1> for BlueSkyConfig<4> {
+impl poseidon::Config<Scalar, 4, 3, 1> for BlueSkyConfig<4, 3, 1> {
     fn num_full_rounds() -> usize {
         4
     }
@@ -83,10 +83,10 @@ impl poseidon::Config<Scalar, 4, 3, 1> for BlueSkyConfig<4> {
 }
 
 /// Poseidon configuration for BlueSky with T=3.
-pub type BlueSkyConfig3 = BlueSkyConfig<3>;
+pub type BlueSkyConfig3 = BlueSkyConfig<3, 2, 1>;
 
 /// Poseidon configuration for BlueSky with T=4.
-pub type BlueSkyConfig4 = BlueSkyConfig<4>;
+pub type BlueSkyConfig4 = BlueSkyConfig<4, 3, 1>;
 
 #[cfg(test)]
 mod tests {

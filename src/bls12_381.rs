@@ -4,9 +4,9 @@ use starkom_ff::bls12_381::Scalar;
 use std::sync::LazyLock;
 
 /// Poseidon configuration for the BLS12-381 scalar field.
-pub struct BlsConfig<const T: usize> {}
+pub struct BlsConfig<const T: usize, const R: usize, const C: usize> {}
 
-impl poseidon::Config<Scalar, 3, 2, 1> for BlsConfig<3> {
+impl poseidon::Config<Scalar, 3, 2, 1> for BlsConfig<3, 2, 1> {
     fn num_full_rounds() -> usize {
         4
     }
@@ -44,7 +44,7 @@ impl poseidon::Config<Scalar, 3, 2, 1> for BlsConfig<3> {
     }
 }
 
-impl poseidon::Config<Scalar, 4, 3, 1> for BlsConfig<4> {
+impl poseidon::Config<Scalar, 4, 3, 1> for BlsConfig<4, 3, 1> {
     fn num_full_rounds() -> usize {
         4
     }
@@ -83,10 +83,10 @@ impl poseidon::Config<Scalar, 4, 3, 1> for BlsConfig<4> {
 }
 
 /// Poseidon configuration for BLS12-381 with T=3.
-pub type BlsConfig3 = BlsConfig<3>;
+pub type BlsConfig3 = BlsConfig<3, 2, 1>;
 
 /// Poseidon configuration for BLS12-381 with T=4.
-pub type BlsConfig4 = BlsConfig<4>;
+pub type BlsConfig4 = BlsConfig<4, 3, 1>;
 
 #[cfg(test)]
 mod tests {

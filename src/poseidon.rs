@@ -73,6 +73,7 @@ fn internal_linear<
     linear::<F, T>(Cfg::get_internal_matrix(), state)
 }
 
+/// Runs the Poseidon2 permutation.
 pub fn permutation<
     Cfg: Config<F, T, R, C>,
     F: PrimeField,
@@ -133,7 +134,7 @@ pub fn hash<
     const C: usize,
 >(
     inputs: &[F],
-) -> [F; T] {
+) -> [F; R] {
     assert!(!inputs.is_empty());
     let mut state = [F::ZERO; T];
     for chunk in inputs.chunks(T - C) {
@@ -142,7 +143,7 @@ pub fn hash<
         }
         state = permutation::<Cfg, F, T, R, C>(state);
     }
-    state
+    std::array::from_fn(|i| state[i])
 }
 
 /// Convenience function for hashing with Poseidon2 and squeezing the first element.

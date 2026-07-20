@@ -73,7 +73,7 @@ fn internal_linear<
     linear::<F, T>(Cfg::get_internal_matrix(), state)
 }
 
-pub(crate) fn permutation<
+pub fn permutation<
     Cfg: Config<F, T, R, C>,
     F: PrimeField,
     const T: usize,

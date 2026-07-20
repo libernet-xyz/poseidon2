@@ -82,6 +82,8 @@ pub(crate) fn permutation<
 >(
     mut state: [F; T],
 ) -> [F; T] {
+    const { assert!(T == R + C) };
+
     let num_full_rounds = Cfg::num_full_rounds();
     let num_partial_rounds = Cfg::num_partial_rounds();
     let num_total_rounds = Cfg::num_total_rounds();

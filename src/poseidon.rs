@@ -133,13 +133,17 @@ pub fn hash<
     const R: usize,
     const C: usize,
 >(
-    inputs: &[F],
+    inputs: impl IntoIterator<Item = F>,
 ) -> [F; R] {
-    assert!(!inputs.is_empty());
     let mut state = [F::ZERO; T];
-    for chunk in inputs.chunks(T - C) {
-        for i in 0..chunk.len() {
-            state[i] += chunk[i];
+    let mut inputs = inputs.into_iter().peekable();
+    assert!(inputs.peek().is_some(), "cannot hash an empty sequence");
+    while inputs.peek().is_some() {
+        for i in 0..(T - C) {
+            match inputs.next() {
+                Some(value) => state[i] += value,
+                None => break,
+            }
         }
         state = permutation::<Cfg, F, T, R, C>(state);
     }
@@ -154,7 +158,7 @@ pub fn hash0<
     const R: usize,
     const C: usize,
 >(
-    inputs: &[F],
+    inputs: impl IntoIterator<Item = F>,
 ) -> F {
     hash::<Cfg, F, T, R, C>(inputs)[0]
 }

@@ -4,9 +4,9 @@ use starkom_bluesky::Scalar;
 use std::sync::LazyLock;
 
 /// Poseidon configuration for the BlueSky field.
-pub struct BlueSkyConfig<const T: usize, const R: usize, const C: usize> {}
+pub struct BlueSkyConfig<const T: usize> {}
 
-impl poseidon::Config<Scalar, 3, 2, 1> for BlueSkyConfig<3, 2, 1> {
+impl poseidon::Config<Scalar, 3> for BlueSkyConfig<3> {
     fn num_full_rounds() -> usize {
         4
     }
@@ -44,7 +44,7 @@ impl poseidon::Config<Scalar, 3, 2, 1> for BlueSkyConfig<3, 2, 1> {
     }
 }
 
-impl poseidon::Config<Scalar, 4, 3, 1> for BlueSkyConfig<4, 3, 1> {
+impl poseidon::Config<Scalar, 4> for BlueSkyConfig<4> {
     fn num_full_rounds() -> usize {
         4
     }
@@ -83,10 +83,10 @@ impl poseidon::Config<Scalar, 4, 3, 1> for BlueSkyConfig<4, 3, 1> {
 }
 
 /// Poseidon configuration for BlueSky with T=3.
-pub type BlueSkyConfig3 = BlueSkyConfig<3, 2, 1>;
+pub type BlueSkyConfig3 = BlueSkyConfig<3>;
 
 /// Poseidon configuration for BlueSky with T=4.
-pub type BlueSkyConfig4 = BlueSkyConfig<4, 3, 1>;
+pub type BlueSkyConfig4 = BlueSkyConfig<4>;
 
 #[cfg(test)]
 mod tests {
@@ -112,7 +112,7 @@ mod tests {
     #[test]
     fn test_permutation_t3() {
         assert_eq!(
-            poseidon::permutation::<BlueSkyConfig3, Scalar, 3, 2, 1>([
+            poseidon::permutation::<BlueSkyConfig3, Scalar, 3>([
                 from_const(0),
                 from_const(1),
                 from_const(2)
@@ -128,7 +128,7 @@ mod tests {
     #[test]
     fn test_permutation_t4() {
         assert_eq!(
-            poseidon::permutation::<BlueSkyConfig4, Scalar, 4, 3, 1>([
+            poseidon::permutation::<BlueSkyConfig4, Scalar, 4>([
                 from_const(0),
                 from_const(1),
                 from_const(2),

@@ -1,6 +1,6 @@
 [package]
 name = "starkom-poseidon2"
-version = "5.0.0"
+version = "6.0.0"
 description = "Starkom's implementation of the Poseidon2 algebraic hash."
 license = "Apache-2.0"
 repository = "https://github.com/libernet-xyz/poseidon2.git"

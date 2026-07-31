@@ -4,9 +4,9 @@ use starkom_ff::bls12_381::Scalar;
 use std::sync::LazyLock;
 
 /// Poseidon configuration for the BLS12-381 scalar field.
-pub struct BlsConfig<const T: usize, const R: usize, const C: usize> {}
+pub struct BlsConfig<const T: usize> {}
 
-impl poseidon::Config<Scalar, 3, 2, 1> for BlsConfig<3, 2, 1> {
+impl poseidon::Config<Scalar, 3> for BlsConfig<3> {
     fn num_full_rounds() -> usize {
         4
     }
@@ -44,7 +44,7 @@ impl poseidon::Config<Scalar, 3, 2, 1> for BlsConfig<3, 2, 1> {
     }
 }
 
-impl poseidon::Config<Scalar, 4, 3, 1> for BlsConfig<4, 3, 1> {
+impl poseidon::Config<Scalar, 4> for BlsConfig<4> {
     fn num_full_rounds() -> usize {
         4
     }
@@ -83,10 +83,10 @@ impl poseidon::Config<Scalar, 4, 3, 1> for BlsConfig<4, 3, 1> {
 }
 
 /// Poseidon configuration for BLS12-381 with T=3.
-pub type BlsConfig3 = BlsConfig<3, 2, 1>;
+pub type BlsConfig3 = BlsConfig<3>;
 
 /// Poseidon configuration for BLS12-381 with T=4.
-pub type BlsConfig4 = BlsConfig<4, 3, 1>;
+pub type BlsConfig4 = BlsConfig<4>;
 
 #[cfg(test)]
 mod tests {
@@ -115,7 +115,7 @@ mod tests {
     #[test]
     fn test_permutation_t3() {
         assert_eq!(
-            poseidon::permutation::<BlsConfig3, Scalar, 3, 2, 1>([
+            poseidon::permutation::<BlsConfig3, Scalar, 3>([
                 Scalar::from_const(0),
                 Scalar::from_const(1),
                 Scalar::from_const(2)
@@ -131,7 +131,7 @@ mod tests {
     #[test]
     fn test_permutation_t4() {
         assert_eq!(
-            poseidon::permutation::<BlsConfig4, Scalar, 4, 3, 1>([
+            poseidon::permutation::<BlsConfig4, Scalar, 4>([
                 Scalar::from_const(0),
                 Scalar::from_const(1),
                 Scalar::from_const(2),

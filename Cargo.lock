@@ -445,7 +445,7 @@ dependencies = [
 
 [[package]]
 name = "starkom-poseidon2"
-version = "6.0.0"
+version = "6.0.1"
 dependencies = [
  "starkom-bluesky",
  "starkom-ff",

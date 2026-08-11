@@ -3,6 +3,9 @@
 
 #![doc = include_str!("../README.md")]
 
+#[cfg(feature = "cipher")]
+mod cipher;
+
 mod params;
 mod poseidon;
 
@@ -11,6 +14,9 @@ pub mod bluesky;
 
 #[cfg(feature = "bls12_381")]
 pub mod bls12_381;
+
+#[cfg(feature = "cipher")]
+pub use cipher::*;
 
 pub use poseidon::*;
 

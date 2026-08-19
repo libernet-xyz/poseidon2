@@ -119,18 +119,18 @@ mod tests {
         assert_eq!(
             poseidon::permutation::<GoldilocksConfig12, Scalar, 12>(range(12).try_into().unwrap()),
             [
-                parse_scalar("0x83afdd42ec7645d7"),
-                parse_scalar("0x092cbaa0e21e1d83"),
-                parse_scalar("0x6df84f1f32b4720b"),
-                parse_scalar("0x98a543e21ad05c27"),
-                parse_scalar("0x07298e370c4bf74e"),
-                parse_scalar("0x807ed30ea66099ee"),
-                parse_scalar("0xec8aadab01a62399"),
-                parse_scalar("0x7dfd4c39a3b4fc98"),
-                parse_scalar("0x836cdc7dd9ad04f2"),
-                parse_scalar("0x3dee2d6970fe4336"),
-                parse_scalar("0x857f6f6888538e7c"),
-                parse_scalar("0x93d6becbbbd67b8e"),
+                parse_scalar("0x01eaef96bdf1c0c1"),
+                parse_scalar("0x1f0d2cc525b2540c"),
+                parse_scalar("0x6282c1dfe1e0358d"),
+                parse_scalar("0xe780d721f698e1e6"),
+                parse_scalar("0x280c0b6f753d833b"),
+                parse_scalar("0x1b942dd5023156ab"),
+                parse_scalar("0x43f0df3fcccb8398"),
+                parse_scalar("0xe8e8190585489025"),
+                parse_scalar("0x56bdbf72f77ada22"),
+                parse_scalar("0x7911c32bf9dcd705"),
+                parse_scalar("0xec467926508fbe67"),
+                parse_scalar("0x6a50450ddf85a6ed"),
             ]
         );
     }
@@ -140,22 +140,22 @@ mod tests {
         assert_eq!(
             poseidon::permutation::<GoldilocksConfig16, Scalar, 16>(range(16).try_into().unwrap()),
             [
-                parse_scalar("0x10024b9eb9f64cd1"),
-                parse_scalar("0xfa89f7418f9d479c"),
-                parse_scalar("0x0ecb7dcb9b22c92d"),
-                parse_scalar("0xffa6268a75d846a4"),
-                parse_scalar("0xf9c7a65b439bcd88"),
-                parse_scalar("0x27a2f3a9a5be47f6"),
-                parse_scalar("0x192e5eebbbb47661"),
-                parse_scalar("0x002ec9cb3950c560"),
-                parse_scalar("0x8ea36442548557f8"),
-                parse_scalar("0x52b5dc115287e718"),
-                parse_scalar("0xc7b8b286d08fe4a4"),
-                parse_scalar("0xec3d42eef2d79fda"),
-                parse_scalar("0x2be14ebd711a5ce7"),
-                parse_scalar("0xa335679899fbcc47"),
-                parse_scalar("0xeccce7e356ebf7ef"),
-                parse_scalar("0xd74bb9263dfc66a0"),
+                parse_scalar("0x85c54702470d9756"),
+                parse_scalar("0xaa53c7a7d52d9898"),
+                parse_scalar("0x285128096efb0dd7"),
+                parse_scalar("0xf3fde5edd3050ac8"),
+                parse_scalar("0xc7b65efd040df908"),
+                parse_scalar("0x4be3f6c467f57ae9"),
+                parse_scalar("0x274e9a67b41754fb"),
+                parse_scalar("0x0f7d39cd5de94dac"),
+                parse_scalar("0xd0224b9794d0b78c"),
+                parse_scalar("0x372f6139570042e1"),
+                parse_scalar("0xce6e8a93dc4ec26c"),
+                parse_scalar("0xace65e30a4daf7af"),
+                parse_scalar("0x016f2824cc1ba3db"),
+                parse_scalar("0x2e8f3af37c434dec"),
+                parse_scalar("0xc80831bb6e09da01"),
+                parse_scalar("0x3a7d670bf1a86ee8"),
             ]
         );
     }
@@ -165,17 +165,17 @@ mod tests {
         assert_eq!(
             hash_t12(range(1)),
             [
-                parse_scalar("0x5fbfe728b8a1fb59"),
-                parse_scalar("0xef77815bdf0b9b9f"),
-                parse_scalar("0x7db2967fcf5771db"),
-                parse_scalar("0x96a346384def5d20"),
-                parse_scalar("0x34b984c3cea94f3b"),
-                parse_scalar("0x07e084eda69444e1"),
-                parse_scalar("0xd2ec36ea39529f27"),
-                parse_scalar("0x965af0bded9c4fd5"),
+                parse_scalar("0xef311849263abcb4"),
+                parse_scalar("0x8bf04d36f9a01799"),
+                parse_scalar("0x9e570c4df0f2699f"),
+                parse_scalar("0x6927c3a96db0b2ad"),
+                parse_scalar("0x760d22fbb5fc5de0"),
+                parse_scalar("0xafd1fedcdef654f4"),
+                parse_scalar("0xbb8c81621d5d5aed"),
+                parse_scalar("0x298915feb162422c"),
             ]
         );
-        assert_eq!(hash_t12_0(range(1)), parse_scalar("0x5fbfe728b8a1fb59"));
+        assert_eq!(hash_t12_0(range(1)), parse_scalar("0xef311849263abcb4"));
     }
 
     #[test]
@@ -183,17 +183,17 @@ mod tests {
         assert_eq!(
             hash_t12(range(2)),
             [
-                parse_scalar("0x7d12b4ddb0f85ecd"),
-                parse_scalar("0xaa632cfc56eb0927"),
-                parse_scalar("0x33b824c37ec2f263"),
-                parse_scalar("0x36273da74d0f1d17"),
-                parse_scalar("0xcc25ec737b10fbe6"),
-                parse_scalar("0x284c6e36da668fe8"),
-                parse_scalar("0x56b85ae4475d2622"),
-                parse_scalar("0x789f9bda9efccfa0"),
+                parse_scalar("0x868352e949a41bce"),
+                parse_scalar("0x09bc14bd401a370a"),
+                parse_scalar("0x95d895ea09268383"),
+                parse_scalar("0x813447f570e8c33f"),
+                parse_scalar("0x4b8570484aa9eeae"),
+                parse_scalar("0x52e1842ee5595711"),
+                parse_scalar("0xc5b1f55643b615a8"),
+                parse_scalar("0x64bc5f3129a38bc0"),
             ]
         );
-        assert_eq!(hash_t12_0(range(2)), parse_scalar("0x7d12b4ddb0f85ecd"));
+        assert_eq!(hash_t12_0(range(2)), parse_scalar("0x868352e949a41bce"));
     }
 
     #[test]
@@ -201,17 +201,17 @@ mod tests {
         assert_eq!(
             hash_t12(range(8)),
             [
-                parse_scalar("0x81fabe8c9821bfa1"),
-                parse_scalar("0x5fa60665043fa510"),
-                parse_scalar("0xec121cfcb1e1ab33"),
-                parse_scalar("0x8d1a1547f160fdc8"),
-                parse_scalar("0xf61eca233f73f05d"),
-                parse_scalar("0x2c8ab02701147874"),
-                parse_scalar("0xef2f079eb545f108"),
-                parse_scalar("0x67024ab3eabdb3bd"),
+                parse_scalar("0xfd2ed0da41a63e0b"),
+                parse_scalar("0x94252156cb2374ba"),
+                parse_scalar("0xc5585182a3092abf"),
+                parse_scalar("0x653c8aaa741bf05b"),
+                parse_scalar("0x9ab1dd68e3dd2ab0"),
+                parse_scalar("0xbd3bd7b198977827"),
+                parse_scalar("0x63b408e2eb16e145"),
+                parse_scalar("0xce70ffe4e269654a"),
             ]
         );
-        assert_eq!(hash_t12_0(range(8)), parse_scalar("0x81fabe8c9821bfa1"));
+        assert_eq!(hash_t12_0(range(8)), parse_scalar("0xfd2ed0da41a63e0b"));
     }
 
     #[test]
@@ -219,17 +219,17 @@ mod tests {
         assert_eq!(
             hash_t12(range(9)),
             [
-                parse_scalar("0x7b2d6c3207bdee19"),
-                parse_scalar("0x38f8710a8a93e0ae"),
-                parse_scalar("0xe2abd7d65627748c"),
-                parse_scalar("0x6b8ee663f8807881"),
-                parse_scalar("0xba2218edc14fe418"),
-                parse_scalar("0x71ad72ba3d3b41bd"),
-                parse_scalar("0xef5bf1af28d1ceb4"),
-                parse_scalar("0xfb6d30a602e7e207"),
+                parse_scalar("0x79528f6968b8fc8e"),
+                parse_scalar("0xa9b0059cfeb3fdc1"),
+                parse_scalar("0xf9d474a3916eb700"),
+                parse_scalar("0xda90951bf86349e3"),
+                parse_scalar("0xb1b0995f9b02dfeb"),
+                parse_scalar("0x6b340b48657922c1"),
+                parse_scalar("0x09678d12d7f7d633"),
+                parse_scalar("0x3145c3da2f367338"),
             ]
         );
-        assert_eq!(hash_t12_0(range(9)), parse_scalar("0x7b2d6c3207bdee19"));
+        assert_eq!(hash_t12_0(range(9)), parse_scalar("0x79528f6968b8fc8e"));
     }
 
     #[test]
@@ -237,17 +237,17 @@ mod tests {
         assert_eq!(
             hash_t12(range(11)),
             [
-                parse_scalar("0xb07467623f6bd7fc"),
-                parse_scalar("0x896e7b099938993d"),
-                parse_scalar("0x41b132d85477960c"),
-                parse_scalar("0x39bbd81feb63b840"),
-                parse_scalar("0x3ebb88384b2e1700"),
-                parse_scalar("0x3ea239978df23985"),
-                parse_scalar("0xd19f3dee7eff6d68"),
-                parse_scalar("0xf6311ee5273cdaaa"),
+                parse_scalar("0x43d0036caf8454a1"),
+                parse_scalar("0xa2bcbd4ed5a14100"),
+                parse_scalar("0xc33aad6222932517"),
+                parse_scalar("0x5d80fcd5fecd0fff"),
+                parse_scalar("0xc2d23dba4ff23013"),
+                parse_scalar("0x99d084657f2b29ac"),
+                parse_scalar("0x8f5ead63db53853e"),
+                parse_scalar("0x4fdb7d5ca4f1da21"),
             ]
         );
-        assert_eq!(hash_t12_0(range(11)), parse_scalar("0xb07467623f6bd7fc"));
+        assert_eq!(hash_t12_0(range(11)), parse_scalar("0x43d0036caf8454a1"));
     }
 
     #[test]
@@ -255,17 +255,17 @@ mod tests {
         assert_eq!(
             hash_t12(range(12)),
             [
-                parse_scalar("0x91dc4082eb7c6883"),
-                parse_scalar("0x2f999107df4f0b23"),
-                parse_scalar("0xee50218d3a248b76"),
-                parse_scalar("0xb6b084e51754ebc9"),
-                parse_scalar("0xb3b7b553e70166d0"),
-                parse_scalar("0xb1ce553a39706ed6"),
-                parse_scalar("0xf012f70fdc7a86aa"),
-                parse_scalar("0x9cded02ec645ad55"),
+                parse_scalar("0x2f038ce6adcd4ff9"),
+                parse_scalar("0x9ff2232c123e6b81"),
+                parse_scalar("0xa1d3b8af23e412d2"),
+                parse_scalar("0x12e26c6feee38c37"),
+                parse_scalar("0x4d09e9c136f6a9ba"),
+                parse_scalar("0xd352b7dcb8c7938d"),
+                parse_scalar("0xcba921b2ad73a196"),
+                parse_scalar("0x92b6d7029dc57e29"),
             ]
         );
-        assert_eq!(hash_t12_0(range(12)), parse_scalar("0x91dc4082eb7c6883"));
+        assert_eq!(hash_t12_0(range(12)), parse_scalar("0x2f038ce6adcd4ff9"));
     }
 
     #[test]
@@ -273,17 +273,17 @@ mod tests {
         assert_eq!(
             hash_t12(range(13)),
             [
-                parse_scalar("0x93d27c619322458d"),
-                parse_scalar("0xdeb2172cbacb5f3f"),
-                parse_scalar("0x19240fe12953063d"),
-                parse_scalar("0x5838bdd2f599a0be"),
-                parse_scalar("0x1b893d092634d93a"),
-                parse_scalar("0xadd75164132618e2"),
-                parse_scalar("0x6074caef40b99eb9"),
-                parse_scalar("0xdbb78e18635d5db0"),
+                parse_scalar("0x5735a7e6ab16f177"),
+                parse_scalar("0xec6edec1bbe88257"),
+                parse_scalar("0x24c78f7980b765fa"),
+                parse_scalar("0x701a85024e1820c1"),
+                parse_scalar("0x1fcce822178839ba"),
+                parse_scalar("0x88b02af516657820"),
+                parse_scalar("0x7abe4fa3b862db08"),
+                parse_scalar("0xf8295c4e6eb96919"),
             ]
         );
-        assert_eq!(hash_t12_0(range(13)), parse_scalar("0x93d27c619322458d"));
+        assert_eq!(hash_t12_0(range(13)), parse_scalar("0x5735a7e6ab16f177"));
     }
 
     #[test]
@@ -291,21 +291,21 @@ mod tests {
         assert_eq!(
             hash_t16(range(1)),
             [
-                parse_scalar("0x3bfa4620b337d11c"),
-                parse_scalar("0x446acd82ab22c1bc"),
-                parse_scalar("0x42d27a5756d6ed8e"),
-                parse_scalar("0xf252e212a45bc94d"),
-                parse_scalar("0x6e83369f856f076d"),
-                parse_scalar("0x565c6f03b223efd9"),
-                parse_scalar("0x589a649f740ede28"),
-                parse_scalar("0xe0182d130a9bbed6"),
-                parse_scalar("0x2b4d212623421fa3"),
-                parse_scalar("0xe44747fb2a5e51ac"),
-                parse_scalar("0x7f3bc7fe80be7619"),
-                parse_scalar("0x0b995138285dffcb"),
+                parse_scalar("0xf2b2442ea4d72b98"),
+                parse_scalar("0x08367625af002a12"),
+                parse_scalar("0x41d794a3d56b9451"),
+                parse_scalar("0x533967a2f0a214c8"),
+                parse_scalar("0x9b10cb9aecef64c2"),
+                parse_scalar("0x3af18efb76e71cc4"),
+                parse_scalar("0x20d42b106f3cd4d6"),
+                parse_scalar("0x537149275a93e1b9"),
+                parse_scalar("0xe48c755b2541ac33"),
+                parse_scalar("0xd88485c5e6be8ad5"),
+                parse_scalar("0xf864699c52b2d651"),
+                parse_scalar("0x3bb13e057d4f33c6"),
             ]
         );
-        assert_eq!(hash_t16_0(range(1)), parse_scalar("0x3bfa4620b337d11c"));
+        assert_eq!(hash_t16_0(range(1)), parse_scalar("0xf2b2442ea4d72b98"));
     }
 
     #[test]
@@ -313,21 +313,21 @@ mod tests {
         assert_eq!(
             hash_t16(range(2)),
             [
-                parse_scalar("0x983a0c56ea4071fa"),
-                parse_scalar("0x07bf94787e10e847"),
-                parse_scalar("0x0c1d48fd9c072164"),
-                parse_scalar("0xb7ee90a897b6e50e"),
-                parse_scalar("0x8878f8a5177a3d9f"),
-                parse_scalar("0x4490d5f67a694d0f"),
-                parse_scalar("0x933c4459983e9cc4"),
-                parse_scalar("0x38b43a68f04db485"),
-                parse_scalar("0x18087a3affd1078c"),
-                parse_scalar("0x7e9ed1d490a397d0"),
-                parse_scalar("0xdc8f41e125325fb6"),
-                parse_scalar("0xd3fa0f21937718e2"),
+                parse_scalar("0xc15fbf2803ac65dd"),
+                parse_scalar("0x08074b5aebc022de"),
+                parse_scalar("0xea229fdd8a70c2d6"),
+                parse_scalar("0x07b7e9ee134e5a87"),
+                parse_scalar("0x2e78869e72d189a4"),
+                parse_scalar("0xce7ad0cb08fe6d75"),
+                parse_scalar("0x193513be5e03294f"),
+                parse_scalar("0xb4d66fa29d946e1a"),
+                parse_scalar("0x9c1ea0488a8a7e0f"),
+                parse_scalar("0x15944a5b7d1bfb16"),
+                parse_scalar("0xa971b2c914158460"),
+                parse_scalar("0x1abcdd88deac4f10"),
             ]
         );
-        assert_eq!(hash_t16_0(range(2)), parse_scalar("0x983a0c56ea4071fa"));
+        assert_eq!(hash_t16_0(range(2)), parse_scalar("0xc15fbf2803ac65dd"));
     }
 
     #[test]
@@ -335,21 +335,21 @@ mod tests {
         assert_eq!(
             hash_t16(range(12)),
             [
-                parse_scalar("0x0ea14665a5756f15"),
-                parse_scalar("0xa8c65783281f2199"),
-                parse_scalar("0xa5474a96ba0f7b5a"),
-                parse_scalar("0x9fe37c0110a6bffd"),
-                parse_scalar("0xe7c0e2c3c51fdbfa"),
-                parse_scalar("0x85562c67ff83f345"),
-                parse_scalar("0x7cb716146e3d8a3b"),
-                parse_scalar("0xf86dd8318940da6b"),
-                parse_scalar("0xf4c68c2c08b32e22"),
-                parse_scalar("0xda2c3b1e89abf8d9"),
-                parse_scalar("0x8cf600ecbd4fc35b"),
-                parse_scalar("0x94686ea31af4d3a9"),
+                parse_scalar("0xd66460d8c09a912b"),
+                parse_scalar("0xbdcd36a3acf806d2"),
+                parse_scalar("0x5113907be722f501"),
+                parse_scalar("0x4ca4eee19c3c5a2d"),
+                parse_scalar("0x54915e981eb28092"),
+                parse_scalar("0x73e8488fdea9ae75"),
+                parse_scalar("0xed5b7865c043656b"),
+                parse_scalar("0xb82ca7c9c07f0f0b"),
+                parse_scalar("0xe4a0823061e92dbc"),
+                parse_scalar("0x92a7cf669d5d9f94"),
+                parse_scalar("0xf87ef9aa4d027c1e"),
+                parse_scalar("0x70648b9fd05bb1cd"),
             ]
         );
-        assert_eq!(hash_t16_0(range(12)), parse_scalar("0x0ea14665a5756f15"));
+        assert_eq!(hash_t16_0(range(12)), parse_scalar("0xd66460d8c09a912b"));
     }
 
     #[test]
@@ -357,21 +357,21 @@ mod tests {
         assert_eq!(
             hash_t16(range(13)),
             [
-                parse_scalar("0xe1c3425e8f847ab5"),
-                parse_scalar("0x30ec5d6da62b133a"),
-                parse_scalar("0xa46e93a898776814"),
-                parse_scalar("0x5992df90fa4d58c4"),
-                parse_scalar("0xb5293b8e07b7939b"),
-                parse_scalar("0xef77911dbf6f74f4"),
-                parse_scalar("0x4e90e412d557f90e"),
-                parse_scalar("0x9845d6a2fd2e2f7b"),
-                parse_scalar("0x5432377fc2b0aa51"),
-                parse_scalar("0x713f5077b860e8c0"),
-                parse_scalar("0x8d9575c1d498be2d"),
-                parse_scalar("0x82c97bc7d2a630e2"),
+                parse_scalar("0x0ccae528199e8a7f"),
+                parse_scalar("0x4c0d4be6ed277199"),
+                parse_scalar("0xf04b738ac688ff1f"),
+                parse_scalar("0x67ba4d00d2ab90b6"),
+                parse_scalar("0xddb8a9ae2c73281b"),
+                parse_scalar("0xc5c9ce6ef34c1603"),
+                parse_scalar("0x0607560bacd79d1f"),
+                parse_scalar("0xc5ce28cb8f7f5d34"),
+                parse_scalar("0x182b9e762c1c0b0d"),
+                parse_scalar("0xb5d1fd5916ab218a"),
+                parse_scalar("0xcc283ae14bb815e9"),
+                parse_scalar("0x66bb49824442c8b3"),
             ]
         );
-        assert_eq!(hash_t16_0(range(13)), parse_scalar("0xe1c3425e8f847ab5"));
+        assert_eq!(hash_t16_0(range(13)), parse_scalar("0x0ccae528199e8a7f"));
     }
 
     #[test]
@@ -379,21 +379,21 @@ mod tests {
         assert_eq!(
             hash_t16(range(15)),
             [
-                parse_scalar("0x70ed8ed4286b6443"),
-                parse_scalar("0xbd899d95f78c7145"),
-                parse_scalar("0x2d90d17b61bc3c42"),
-                parse_scalar("0x9804f01022bed07b"),
-                parse_scalar("0xacd7f440a1e33771"),
-                parse_scalar("0x1b6dbcfe7d94f2e9"),
-                parse_scalar("0x15c5358fe019dcdd"),
-                parse_scalar("0xb2e3dee891dedc6f"),
-                parse_scalar("0x311bcdef38e9ae36"),
-                parse_scalar("0x2e70e09cf52c6bfa"),
-                parse_scalar("0xe0faa878c243a7dd"),
-                parse_scalar("0x9f6d26bdcfbb5aa6"),
+                parse_scalar("0x8c1d1af9b63b88ae"),
+                parse_scalar("0x2c91cc531b87b1f3"),
+                parse_scalar("0xe3ded808778829df"),
+                parse_scalar("0xfcbe93b8763943d7"),
+                parse_scalar("0x97ef96f852742b11"),
+                parse_scalar("0x53c86d06e2914d05"),
+                parse_scalar("0xa9b2fd18064fceae"),
+                parse_scalar("0xb7ac2caf89f3d14b"),
+                parse_scalar("0x4acc25fc21ad1322"),
+                parse_scalar("0xb7f73c50198965cb"),
+                parse_scalar("0xa464b48a8629eb91"),
+                parse_scalar("0x262ecbfa9807635d"),
             ]
         );
-        assert_eq!(hash_t16_0(range(15)), parse_scalar("0x70ed8ed4286b6443"));
+        assert_eq!(hash_t16_0(range(15)), parse_scalar("0x8c1d1af9b63b88ae"));
     }
 
     #[test]
@@ -401,21 +401,21 @@ mod tests {
         assert_eq!(
             hash_t16(range(16)),
             [
-                parse_scalar("0x528d190d7bd06109"),
-                parse_scalar("0x4ebbe5e10533b111"),
-                parse_scalar("0xeeb93f3cf2b3ebf3"),
-                parse_scalar("0xa66e7dbb84d6b0d7"),
-                parse_scalar("0xe3b72c2725968d02"),
-                parse_scalar("0x9eb6245959cfd417"),
-                parse_scalar("0x8afb9de506285cc4"),
-                parse_scalar("0x936f30fca079f285"),
-                parse_scalar("0xeae3efcfd7e0f4c0"),
-                parse_scalar("0x9b3dc9dfd33551c0"),
-                parse_scalar("0xe1d02f172d55253d"),
-                parse_scalar("0x7ef9f4accf40fb83"),
+                parse_scalar("0xdc1ab6ca78e2737d"),
+                parse_scalar("0xc4aebc20584b7492"),
+                parse_scalar("0x9bf1cb58e29b0e04"),
+                parse_scalar("0xbb6518684cde640e"),
+                parse_scalar("0x1588e01ab26aae7f"),
+                parse_scalar("0xd8fdd105f80299cc"),
+                parse_scalar("0xc092c03409d99d66"),
+                parse_scalar("0x6ce884c450a6c8c6"),
+                parse_scalar("0x0c9cdb0f9c563b18"),
+                parse_scalar("0xe5c47af9667fda3f"),
+                parse_scalar("0x2761c27c7450f24e"),
+                parse_scalar("0xd28d5ddddde2d03b"),
             ]
         );
-        assert_eq!(hash_t16_0(range(16)), parse_scalar("0x528d190d7bd06109"));
+        assert_eq!(hash_t16_0(range(16)), parse_scalar("0xdc1ab6ca78e2737d"));
     }
 
     #[test]
@@ -423,20 +423,20 @@ mod tests {
         assert_eq!(
             hash_t16(range(17)),
             [
-                parse_scalar("0x47a25187f0084c09"),
-                parse_scalar("0xfc11953f53b00c75"),
-                parse_scalar("0x03260122113b3dae"),
-                parse_scalar("0xb07d06a0db72439f"),
-                parse_scalar("0x275c1a68a248f6e1"),
-                parse_scalar("0x8bac8cfd21f8492e"),
-                parse_scalar("0xc4763bc45f45dd40"),
-                parse_scalar("0xa1eb8c58c6f47de4"),
-                parse_scalar("0xe996d220a9ccac95"),
-                parse_scalar("0x88a30cfac44edb06"),
-                parse_scalar("0xcc5e2f0fa324cd7b"),
-                parse_scalar("0x71093265e8753edb"),
+                parse_scalar("0x42e99ebe78a2b70a"),
+                parse_scalar("0x854f58289175dd33"),
+                parse_scalar("0xd3708fd191094a4e"),
+                parse_scalar("0x56155fdd02248a87"),
+                parse_scalar("0x771d73de69773131"),
+                parse_scalar("0x2664559df6fe534f"),
+                parse_scalar("0x903f354576afb24f"),
+                parse_scalar("0xa53d85142bc3154c"),
+                parse_scalar("0xcd9f28c9a0cbc9b6"),
+                parse_scalar("0x10c5f34bdb001b20"),
+                parse_scalar("0x68bdeb18f0e831ba"),
+                parse_scalar("0xdcd1dfa84969ce9d"),
             ]
         );
-        assert_eq!(hash_t16_0(range(17)), parse_scalar("0x47a25187f0084c09"));
+        assert_eq!(hash_t16_0(range(17)), parse_scalar("0x42e99ebe78a2b70a"));
     }
 }

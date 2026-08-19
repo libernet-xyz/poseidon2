@@ -18,6 +18,9 @@ pub mod bls12_381;
 #[cfg(feature = "cipher")]
 pub use cipher::*;
 
+#[cfg(feature = "goldilocks")]
+pub mod goldilocks;
+
 pub use poseidon::*;
 
 #[cfg(feature = "bluesky")]
@@ -25,3 +28,6 @@ pub use bluesky::*;
 
 #[cfg(feature = "bls12_381")]
 pub use bls12_381::*;
+
+#[cfg(feature = "goldilocks")]
+pub use goldilocks::*;

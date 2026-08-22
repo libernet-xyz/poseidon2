@@ -1,7 +1,7 @@
 use crate::params::decode_constants;
 use crate::poseidon;
 use starkom_ff::Field;
-use starkom_goldilocks::Scalar;
+use starkom_goldilocks::GL as Scalar;
 use std::sync::LazyLock;
 
 /// Poseidon2 configuration for the Goldilocks field.
@@ -92,7 +92,7 @@ pub type GoldilocksConfig16 = GoldilocksConfig<16>;
 #[cfg(test)]
 mod tests {
     use super::*;
-    use starkom_goldilocks::{from_const, parse_scalar};
+    use starkom_goldilocks::from_const;
 
     fn hash_t12(inputs: impl IntoIterator<Item = Scalar>) -> [Scalar; 8] {
         poseidon::hash::<GoldilocksConfig12, Scalar, 12, 8, 4>(inputs)
@@ -108,6 +108,10 @@ mod tests {
 
     fn hash_t16_0(inputs: impl IntoIterator<Item = Scalar>) -> Scalar {
         poseidon::hash0::<GoldilocksConfig16, Scalar, 16, 12, 4>(inputs)
+    }
+
+    fn parse_scalar(s: &'static str) -> Scalar {
+        s.parse().unwrap()
     }
 
     fn range(n: u64) -> Vec<Scalar> {

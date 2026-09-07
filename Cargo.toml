@@ -1,6 +1,6 @@
 [package]
 name = "starkom-poseidon2"
-version = "6.5.1"
+version = "6.6.0"
 description = "Starkom's implementation of the Poseidon2 algebraic hash."
 license = "Apache-2.0"
 repository = "https://github.com/libernet-xyz/poseidon2.git"
@@ -19,7 +19,7 @@ primitive-types = "0.14.0"
 sha3 = { version = "0.12.0", optional = true }
 starkom-bluesky = { version = "3.5.1", optional = true }
 starkom-ff = "3.2.0"
-starkom-goldilocks = { version = "2.2.0", optional = true }
+starkom-goldilocks = { version = "3.0.0", optional = true }
 
 [features]
 default = []

@@ -17,8 +17,14 @@ pub trait Config<F: PrimeField, const T: usize> {
 
     /// Applies an optimal S-box for this field.
     ///
-    /// For BLS12-381 and BlueSky the S-Box is x^5.
-    fn sbox(x: F) -> F;
+    /// NOTE: the provided implementation is constant-time even though it uses
+    /// [`pow_small_vartime`](`starkom_ff::Field::pow_small_vartime`) because [`PrimeField::ALPHA`]
+    /// is constant, so the vartime algorithm will always run in the same amount of time. The
+    /// constant-time algorithm would be slower because it would perform unnecessary
+    /// multiplications.
+    fn sbox(x: F) -> F {
+        x.pow_small_vartime(F::ALPHA)
+    }
 
     /// Returns the constants of the ARC layer stored as a flat array, row-first.
     fn get_round_constants() -> &'static [F];
@@ -28,15 +34,6 @@ pub trait Config<F: PrimeField, const T: usize> {
 
     /// Returns the constants of the internal matrix stored as a flat array, row-first.
     fn get_internal_matrix() -> &'static [F];
-}
-
-/// Standard x^5 S-box.
-///
-/// WARNING: this is suitable for BLS12-381 and BlueSky but may not be suitable for other fields.
-/// The general requirement is that `F::MAX % 5 != 0`, otherwise this S-box is not a bijection and
-/// the resulting Poseidon2 implementation is unsound.
-pub fn sbox5<F: PrimeField>(x: F) -> F {
-    x.square().square() * x
 }
 
 fn linear<F: PrimeField, const T: usize>(matrix: &[F], state: [F; T]) -> [F; T] {

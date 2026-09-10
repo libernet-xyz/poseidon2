@@ -1,5 +1,5 @@
 use crate::params::decode_constants;
-use crate::poseidon::{self, sbox5};
+use crate::poseidon;
 use starkom_ff::bls12_381::Scalar;
 use std::sync::LazyLock;
 
@@ -13,10 +13,6 @@ impl poseidon::Config<Scalar, 3> for BlsConfig<3> {
 
     fn num_partial_rounds() -> usize {
         56
-    }
-
-    fn sbox(x: Scalar) -> Scalar {
-        sbox5(x)
     }
 
     fn get_round_constants() -> &'static [Scalar] {
@@ -51,10 +47,6 @@ impl poseidon::Config<Scalar, 4> for BlsConfig<4> {
 
     fn num_partial_rounds() -> usize {
         56
-    }
-
-    fn sbox(x: Scalar) -> Scalar {
-        sbox5(x)
     }
 
     fn get_round_constants() -> &'static [Scalar] {

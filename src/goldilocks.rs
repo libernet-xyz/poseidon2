@@ -1,6 +1,5 @@
 use crate::params::decode_constants;
 use crate::poseidon;
-use starkom_ff::Field;
 use starkom_goldilocks::GL as Scalar;
 use std::sync::LazyLock;
 
@@ -14,10 +13,6 @@ impl poseidon::Config<Scalar, 12> for GoldilocksConfig<12> {
 
     fn num_partial_rounds() -> usize {
         22
-    }
-
-    fn sbox(x: Scalar) -> Scalar {
-        x.cube().square() * x
     }
 
     fn get_round_constants() -> &'static [Scalar] {
@@ -52,10 +47,6 @@ impl poseidon::Config<Scalar, 16> for GoldilocksConfig<16> {
 
     fn num_partial_rounds() -> usize {
         22
-    }
-
-    fn sbox(x: Scalar) -> Scalar {
-        x.cube().square() * x
     }
 
     fn get_round_constants() -> &'static [Scalar] {

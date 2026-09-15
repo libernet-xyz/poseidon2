@@ -143,13 +143,13 @@ mod tests {
         assert_eq!(
             hash_t3([Scalar::from_const(42)]),
             [
-                parse_scalar("0x3096077a3d12ab01b506e6aceda3c0dda9fe86c329ce2996ee63e1517b729e29"),
-                parse_scalar("0x05ff85d9259ee241559209ddf779631f05b51cc77901cb69c79c5ae65f3db9e6"),
+                parse_scalar("0x43cee82d1d9567e7124e1875c4fa74738c7c5f8cec8c9c5f6e9fe168a76da12b"),
+                parse_scalar("0x4d953876c095b0ee8808eca1337215d61c569fb3dd30fe16068e522102d654d1"),
             ]
         );
         assert_eq!(
             hash_t3_0([Scalar::from_const(42)]),
-            parse_scalar("0x3096077a3d12ab01b506e6aceda3c0dda9fe86c329ce2996ee63e1517b729e29")
+            parse_scalar("0x43cee82d1d9567e7124e1875c4fa74738c7c5f8cec8c9c5f6e9fe168a76da12b")
         );
     }
 
@@ -158,13 +158,13 @@ mod tests {
         assert_eq!(
             hash_t3([Scalar::from_const(1), Scalar::from_const(2)]),
             [
-                parse_scalar("0x70a58720d46a84d195bc875de66ed3ddef47522a7e806ec7a98c0d656517ce74"),
-                parse_scalar("0x2629af1f361baa023b59f3c38fcb07a15b934c5e6be76c2e6be4f82155f8712d"),
+                parse_scalar("0x7e57592e1ac7541299aa96f51914caf5727c120411a04ebfe2996c661386a21b"),
+                parse_scalar("0x6b8a433946ec7e7aa0490e0bced41e3ef878feb7667c8e9a76f49d1c4928127d"),
             ]
         );
         assert_eq!(
             hash_t3_0([Scalar::from_const(1), Scalar::from_const(2)]),
-            parse_scalar("0x70a58720d46a84d195bc875de66ed3ddef47522a7e806ec7a98c0d656517ce74")
+            parse_scalar("0x7e57592e1ac7541299aa96f51914caf5727c120411a04ebfe2996c661386a21b")
         );
     }
 
@@ -177,8 +177,8 @@ mod tests {
                 Scalar::from_const(5)
             ]),
             [
-                parse_scalar("0x67497b788437da8141a3580f52a7ece12dbdd8ae1b9efef7dde3cf06cad18b8a"),
-                parse_scalar("0x285c6bf6b09296651149961d9f0bec926ab0d6fe002df059e319026af4780efb"),
+                parse_scalar("0x621890a3340e88c6cbd889417ca2b91fb96edbd2f65a10a5910284836cba656f"),
+                parse_scalar("0x4905c4a352631b77f16e996a3b695c7b2c450b99521caa79a1a706d9ca5dfb98"),
             ]
         );
         assert_eq!(
@@ -187,7 +187,7 @@ mod tests {
                 Scalar::from_const(4),
                 Scalar::from_const(5)
             ]),
-            parse_scalar("0x67497b788437da8141a3580f52a7ece12dbdd8ae1b9efef7dde3cf06cad18b8a")
+            parse_scalar("0x621890a3340e88c6cbd889417ca2b91fb96edbd2f65a10a5910284836cba656f")
         );
     }
 
@@ -201,8 +201,8 @@ mod tests {
                 Scalar::from_const(9)
             ]),
             [
-                parse_scalar("0x6c1ac173b683ba0f3c743b3ae256f8ed269660e6825d2f41d52a8851bcfe689a"),
-                parse_scalar("0x1d630b92554bc071812616fee04bf0a57ea9a1a982cca23167795092eb40ac06"),
+                parse_scalar("0x4d398a6ce6becce23101ef0b26b46b655dac61f736535f850136b292f4f74859"),
+                parse_scalar("0x5a61ae517910b94f1316a37850a35a45dc3bd0fed50b71656f26c68ad047e244"),
             ]
         );
         assert_eq!(
@@ -212,7 +212,7 @@ mod tests {
                 Scalar::from_const(8),
                 Scalar::from_const(9)
             ]),
-            parse_scalar("0x6c1ac173b683ba0f3c743b3ae256f8ed269660e6825d2f41d52a8851bcfe689a")
+            parse_scalar("0x4d398a6ce6becce23101ef0b26b46b655dac61f736535f850136b292f4f74859")
         );
     }
 
@@ -227,8 +227,8 @@ mod tests {
                 Scalar::from_const(14)
             ]),
             [
-                parse_scalar("0x64b7d7fafdefa8e32de1d2c5db35ff3f204c474bba09a1acc41704dafdbf0405"),
-                parse_scalar("0x6d61b19cbea4f57294898ead7cd689b2621ecb0920b636ba6b08e90e6877b6fb"),
+                parse_scalar("0x43d55d84a2d4589584fe788c394f274b04fc4916c8d6039d95c278e36f8403ef"),
+                parse_scalar("0x4192d51c36319b49ff1ebff9bcffd8143047d9d94b09ee8d78abd9dcd8e17398"),
             ]
         );
         assert_eq!(
@@ -239,7 +239,7 @@ mod tests {
                 Scalar::from_const(13),
                 Scalar::from_const(14)
             ]),
-            parse_scalar("0x64b7d7fafdefa8e32de1d2c5db35ff3f204c474bba09a1acc41704dafdbf0405")
+            parse_scalar("0x43d55d84a2d4589584fe788c394f274b04fc4916c8d6039d95c278e36f8403ef")
         );
     }
 
@@ -248,14 +248,14 @@ mod tests {
         assert_eq!(
             hash_t4([Scalar::from_const(42)]),
             [
-                parse_scalar("0x371862e4591023f4be2dd1b86827e2ef6dac40c430beab9d12344ddeef2a5802"),
-                parse_scalar("0x6404da3d59a23d7b6f9f9c6ac505ec041a7096d1b1829f4768d83cf678686df1"),
-                parse_scalar("0x247cddb15312a48b4ac4b725b4b167ef9eda9c603a704eeef709846cb72cbd98"),
+                parse_scalar("0x3d5e1194154805c8ecfeaad6b518bb60d85318836d9e873b1daed9d18f5dc7c7"),
+                parse_scalar("0x1ac43457c33e27c034bf7e59b1f2b5cf3ab5aa77fc1003a2e26e0dd9ef7b1de4"),
+                parse_scalar("0x255288a78acdc8555b15147772df3e64e10d8ff07520e7a6c23f9a34052fe2b7"),
             ]
         );
         assert_eq!(
             hash_t4_0([Scalar::from_const(42)]),
-            parse_scalar("0x371862e4591023f4be2dd1b86827e2ef6dac40c430beab9d12344ddeef2a5802")
+            parse_scalar("0x3d5e1194154805c8ecfeaad6b518bb60d85318836d9e873b1daed9d18f5dc7c7")
         );
     }
 
@@ -264,14 +264,14 @@ mod tests {
         assert_eq!(
             hash_t4([Scalar::from_const(1), Scalar::from_const(2)]),
             [
-                parse_scalar("0x588e95bbff17f8929c7775706570c315fe7db256e96fe213da4e8ffa0587cda8"),
-                parse_scalar("0x683d43f52dfc5ad4c195772f2367a274f7d4de5dc8d6c4923d1203613be36a55"),
-                parse_scalar("0x5a78daf14674b170598d9aeab87d51ce246892e177cb40c93299380982403c41"),
+                parse_scalar("0x34a242785db476aef95ce1eb05d11f57102c9c10f27acab6011b6a85364a98ae"),
+                parse_scalar("0x544420315fdc1a2a0b776a269978ad0c3c65e4582bc43e8769cc9f8c69a7cd6a"),
+                parse_scalar("0x7f2cd57a389efa07421a398fd0e92801f9602f76e36378aa20f5191b9e2eccb9"),
             ]
         );
         assert_eq!(
             hash_t4_0([Scalar::from_const(1), Scalar::from_const(2)]),
-            parse_scalar("0x588e95bbff17f8929c7775706570c315fe7db256e96fe213da4e8ffa0587cda8")
+            parse_scalar("0x34a242785db476aef95ce1eb05d11f57102c9c10f27acab6011b6a85364a98ae")
         );
     }
 
@@ -284,9 +284,9 @@ mod tests {
                 Scalar::from_const(5)
             ]),
             [
-                parse_scalar("0x5f5ba9ebadb4641e56a4d98062c1b8d8f6e5dcf0a3e740844f06d5f9237b5eb2"),
-                parse_scalar("0x54d28c892ecb83c35f0918e09f7e19d66279571f94b99a46216bfc36f89f8cae"),
-                parse_scalar("0x3fe18f2eae5be09983d5293beb57a05f29a07e502fc0e0f487fc9a446f24a791"),
+                parse_scalar("0x39cdfcc63334e8a62fc9f52340145efe1ac8b4e08f760c6b0625ccb9b8e719cf"),
+                parse_scalar("0x7f7a67beadd122399eaef86831b4bf90e432ff59c0be7c3d60b74495d719180e"),
+                parse_scalar("0x06b406d2b4106c4047f257fb2228db019af3d741c5d5ebfa71df4df49886b1bb"),
             ]
         );
         assert_eq!(
@@ -295,7 +295,7 @@ mod tests {
                 Scalar::from_const(4),
                 Scalar::from_const(5)
             ]),
-            parse_scalar("0x5f5ba9ebadb4641e56a4d98062c1b8d8f6e5dcf0a3e740844f06d5f9237b5eb2")
+            parse_scalar("0x39cdfcc63334e8a62fc9f52340145efe1ac8b4e08f760c6b0625ccb9b8e719cf")
         );
     }
 
@@ -309,9 +309,9 @@ mod tests {
                 Scalar::from_const(9)
             ]),
             [
-                parse_scalar("0x3e2c69046948fc299380c2b83b1b785c36d9d36df9da6395d03b77927039ba05"),
-                parse_scalar("0x61c16e752c0aae1dbd75ab3562a9c937055f67d158a0c234dcf3a71f934d1443"),
-                parse_scalar("0x2c83ce003c5ac171951607d4c65eb61118fb54ef78e908d190a9beb49e6b29da"),
+                parse_scalar("0x7c3ab769350cff61e7b8da9b96e29a429e88abd0747567dbcc5470e889be3bc5"),
+                parse_scalar("0x35b939fd3095f10d56f1c5f3b0e245319029dc6699f76c76f99edfc1cbf89d02"),
+                parse_scalar("0x2f2b87d7269c5776bee6731eb3702ee9c6e125786b5ba26635089e42afd59234"),
             ]
         );
         assert_eq!(
@@ -321,7 +321,7 @@ mod tests {
                 Scalar::from_const(8),
                 Scalar::from_const(9)
             ]),
-            parse_scalar("0x3e2c69046948fc299380c2b83b1b785c36d9d36df9da6395d03b77927039ba05")
+            parse_scalar("0x7c3ab769350cff61e7b8da9b96e29a429e88abd0747567dbcc5470e889be3bc5")
         );
     }
 
@@ -336,9 +336,9 @@ mod tests {
                 Scalar::from_const(14)
             ]),
             [
-                parse_scalar("0x414a70dcfe4bfeb447008058a293fa5e64e31e3c78ca8441d6fe8886fb0892dc"),
-                parse_scalar("0x3cd56078f9c97e3cbbdf6e07b4610ba4709836acdc972b5467b92676107f7dc8"),
-                parse_scalar("0x3a3ce52a3eba367e6301d5f93f4d9cb7215c8815946e11fbe87e086011da3520"),
+                parse_scalar("0x009c475906d811f00b6666d64f3a55f615727943802376e96acc3f591fdccc58"),
+                parse_scalar("0x086175f4eae6c9816ca2952d05c2b65807aafcaca4b71addf153265459f47f68"),
+                parse_scalar("0x362bd077b86daddb89be4924a5ccff2be4cb59d971f55422b58dc63229e4ab52"),
             ]
         );
         assert_eq!(
@@ -349,7 +349,7 @@ mod tests {
                 Scalar::from_const(13),
                 Scalar::from_const(14)
             ]),
-            parse_scalar("0x414a70dcfe4bfeb447008058a293fa5e64e31e3c78ca8441d6fe8886fb0892dc")
+            parse_scalar("0x009c475906d811f00b6666d64f3a55f615727943802376e96acc3f591fdccc58")
         );
     }
 }

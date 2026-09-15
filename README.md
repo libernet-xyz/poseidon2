@@ -14,10 +14,10 @@ This crate uses version 2 of the permutation. For version 1 see the
 
 The implementation is generic and works on any prime field.
 
-Configurations for the BLS12-381, Goldilocks, BlueSky, and Schraderbrau prime fields are provided;
-the BLS12-381, [BlueSky](https://crates.io/crates/starkom-bluesky), and
-[Schraderbrau](https://crates.io/crates/starkom-schraderbrau) configurations support T=3 and T=4,
-while the Goldilocks configurations support T=12 and T=16.
+Configurations for the BLS12-381, Goldilocks, [BlueSky](https://crates.io/crates/starkom-bluesky),
+and [Schraderbrau](https://crates.io/crates/starkom-schraderbrau) prime fields are provided; the
+BLS12-381, BlueSky, and Schraderbrau configurations support T=3 and T=4, while the Goldilocks
+configurations support T=12 and T=16.
 
 > [!NOTE]
 > All predefined configurations are gated behind feature flags to avoid including all constants in

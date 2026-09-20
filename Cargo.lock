@@ -486,9 +486,9 @@ checksum = "3a0219bd7d979d58245a4f41f695e1ac9f8befdffadd7f61f1bae9e39abc6620"
 
 [[package]]
 name = "starkom-bluesky"
-version = "3.6.1"
+version = "3.7.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b6ec7c426d531e4e3b0fbcbafc3883252dc32c5f0a33c668939062f91bbe5607"
+checksum = "673ebb8c18854ba03a7acd25b82c84237d5b25c8cdebd3397aabd4e3ad4fbca4"
 dependencies = [
  "anyhow",
  "getrandom 0.2.17",
@@ -501,9 +501,9 @@ dependencies = [
 
 [[package]]
 name = "starkom-ff"
-version = "3.4.0"
+version = "4.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f719d89c85b24e27f24d1b6eacbb8565f95d0cc5bf8f0208c14fa0cc6ea85229"
+checksum = "2e43422ed7d38cd52f16772378430f29d9915cd5fe0d345b2c33705e8be90ede"
 dependencies = [
  "anyhow",
  "getrandom 0.2.17",
@@ -515,9 +515,9 @@ dependencies = [
 
 [[package]]
 name = "starkom-goldilocks"
-version = "3.1.1"
+version = "3.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0dc504f5691039319d7aeedd1289e10de6f0b872c304d2074d0400740471e731"
+checksum = "716914c6a7248b7888a3343c1c31b16248bd1e1b032de2d8fd162a6031a85601"
 dependencies = [
  "anyhow",
  "getrandom 0.4.3",
@@ -529,7 +529,7 @@ dependencies = [
 
 [[package]]
 name = "starkom-poseidon2"
-version = "6.8.1"
+version = "6.8.2"
 dependencies = [
  "anyhow",
  "primitive-types",
@@ -542,9 +542,9 @@ dependencies = [
 
 [[package]]
 name = "starkom-schraderbrau"
-version = "1.0.1"
+version = "1.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "674c5091488a9e47beb8f7ffce459751031f8ea8f223480b002253aab2ba13c3"
+checksum = "889c83d258683d02e9a44fd2500960b63e89e2da89f3a465bd5e1f0179adf522"
 dependencies = [
  "anyhow",
  "getrandom 0.2.17",

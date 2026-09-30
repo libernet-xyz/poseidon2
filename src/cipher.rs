@@ -5,13 +5,20 @@ use sha3::{self, Digest};
 use starkom_ff::PrimeField256;
 use std::marker::PhantomData;
 
-fn iv_element<F: PrimeField256>(index: usize) -> F {
+/// Generates IV elements for [`get_initial_state`].
+pub fn iv_element<F: PrimeField256>(index: usize) -> F {
     let mut hasher = sha3::Sha3_512::new();
     hasher.update(format!("starkom/poseidon/cipher/{}", index).as_bytes());
     F::from_h512(H512::from_slice(hasher.finalize().as_slice()))
 }
 
-fn get_initial_state<F: PrimeField256, const T: usize, const R: usize>(key: F, nonce: F) -> [F; T] {
+/// Initializes the blockcipher state for the given key and nonce.
+///
+/// Used by [`Encryptor`] and [`Decryptor`].
+pub fn get_initial_state<F: PrimeField256, const T: usize, const R: usize>(
+    key: F,
+    nonce: F,
+) -> [F; T] {
     let mut state = [F::ZERO; T];
     for i in 0..R {
         state[i] = iv_element::<F>(i) + nonce;

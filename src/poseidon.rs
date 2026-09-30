@@ -5,26 +5,18 @@ use starkom_ff::PrimeField;
 /// `R` is the absorption rate and `C` is the capacity; the state size `T` must be equal to `R+C`.
 pub trait Config<F: PrimeField, const T: usize> {
     /// Returns the number of full rounds on each side (they're 8 in total).
-    fn num_full_rounds() -> usize;
+    fn num_full_rounds_per_side() -> usize;
 
     /// Returns the number of partial rounds.
     fn num_partial_rounds() -> usize;
 
     /// Returns the total number of rounds.
     fn num_total_rounds() -> usize {
-        Self::num_full_rounds() * 2 + Self::num_partial_rounds()
+        Self::num_full_rounds_per_side() * 2 + Self::num_partial_rounds()
     }
 
-    /// Applies an optimal S-box for this field.
-    ///
-    /// NOTE: the provided implementation is constant-time even though it uses
-    /// [`pow_small_vartime`](`starkom_ff::Field::pow_small_vartime`) because [`PrimeField::ALPHA`]
-    /// is constant, so the vartime algorithm will always run in the same amount of time. The
-    /// constant-time algorithm would be slower because it would perform unnecessary
-    /// multiplications.
-    fn sbox(x: F) -> F {
-        x.pow_small_vartime(F::ALPHA)
-    }
+    /// Returns the S-box exponent.
+    fn alpha() -> usize;
 
     /// Returns the constants of the ARC layer stored as a flat array, row-first.
     fn get_round_constants() -> &'static [F];
@@ -34,6 +26,10 @@ pub trait Config<F: PrimeField, const T: usize> {
 
     /// Returns the constants of the internal matrix stored as a flat array, row-first.
     fn get_internal_matrix() -> &'static [F];
+}
+
+fn sbox<C: Config<F, T>, F: PrimeField, const T: usize>(x: F) -> F {
+    x.pow_small_vartime(C::alpha())
 }
 
 fn linear<F: PrimeField, const T: usize>(matrix: &[F], state: [F; T]) -> [F; T] {
@@ -56,37 +52,40 @@ fn internal_linear<Cfg: Config<F, T>, F: PrimeField, const T: usize>(state: [F; 
 
 /// Runs the Poseidon2 permutation.
 pub fn permutation<Cfg: Config<F, T>, F: PrimeField, const T: usize>(mut state: [F; T]) -> [F; T] {
-    let num_full_rounds = Cfg::num_full_rounds();
+    let num_full_rounds_per_side = Cfg::num_full_rounds_per_side();
     let num_partial_rounds = Cfg::num_partial_rounds();
     let num_total_rounds = Cfg::num_total_rounds();
-    assert_eq!(num_total_rounds, 2 * num_full_rounds + num_partial_rounds);
+    assert_eq!(
+        num_total_rounds,
+        2 * num_full_rounds_per_side + num_partial_rounds
+    );
 
     let c = Cfg::get_round_constants();
 
     state = external_linear::<Cfg, F, T>(state);
 
-    for r in 0..num_full_rounds {
+    for r in 0..num_full_rounds_per_side {
         for i in 0..T {
             state[i] += c[r * T + i];
         }
         for i in 0..T {
-            state[i] = Cfg::sbox(state[i]);
+            state[i] = sbox::<Cfg, F, T>(state[i]);
         }
         state = external_linear::<Cfg, F, T>(state);
     }
 
-    for r in num_full_rounds..(num_full_rounds + num_partial_rounds) {
+    for r in num_full_rounds_per_side..(num_full_rounds_per_side + num_partial_rounds) {
         state[0] += c[r * T];
-        state[0] = Cfg::sbox(state[0]);
+        state[0] = sbox::<Cfg, F, T>(state[0]);
         state = internal_linear::<Cfg, F, T>(state);
     }
 
-    for r in (num_full_rounds + num_partial_rounds)..num_total_rounds {
+    for r in (num_full_rounds_per_side + num_partial_rounds)..num_total_rounds {
         for i in 0..T {
             state[i] += c[r * T + i];
         }
         for i in 0..T {
-            state[i] = Cfg::sbox(state[i]);
+            state[i] = sbox::<Cfg, F, T>(state[i]);
         }
         state = external_linear::<Cfg, F, T>(state);
     }

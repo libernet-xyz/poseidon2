@@ -7,12 +7,16 @@ use std::sync::LazyLock;
 pub struct BlueSkyConfig<const T: usize> {}
 
 impl poseidon::Config<Scalar, 3> for BlueSkyConfig<3> {
-    fn num_full_rounds() -> usize {
+    fn num_full_rounds_per_side() -> usize {
         4
     }
 
     fn num_partial_rounds() -> usize {
         56
+    }
+
+    fn alpha() -> usize {
+        5
     }
 
     fn get_round_constants() -> &'static [Scalar] {
@@ -41,12 +45,16 @@ impl poseidon::Config<Scalar, 3> for BlueSkyConfig<3> {
 }
 
 impl poseidon::Config<Scalar, 4> for BlueSkyConfig<4> {
-    fn num_full_rounds() -> usize {
+    fn num_full_rounds_per_side() -> usize {
         4
     }
 
     fn num_partial_rounds() -> usize {
         56
+    }
+
+    fn alpha() -> usize {
+        5
     }
 
     fn get_round_constants() -> &'static [Scalar] {

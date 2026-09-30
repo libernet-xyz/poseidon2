@@ -121,7 +121,7 @@ pub fn hash<Cfg: Config<F, T>, F: PrimeField, const T: usize, const R: usize, co
 ) -> [F; R] {
     const { assert!(T == R + C) };
     let mut state = [F::ZERO; T];
-    state[(T - C)..T].copy_from_slice(&dst);
+    state[R..T].copy_from_slice(&dst);
     let mut inputs = inputs.into_iter().peekable();
     assert!(inputs.peek().is_some(), "cannot hash an empty sequence");
     while inputs.peek().is_some() {

@@ -136,7 +136,7 @@ pub fn hash<Cfg: Config<F, T>, F: PrimeField, const T: usize, const R: usize, co
     std::array::from_fn(|i| state[i])
 }
 
-/// Convenience function for [hashing](`hash`) with Poseidon and squeezing the first element.
+/// Convenience function for [hashing](`hash`) with Poseidon2 and squeezing the first element.
 pub fn hash0<Cfg: Config<F, T>, F: PrimeField, const T: usize, const R: usize, const C: usize>(
     dst: [F; C],
     inputs: impl IntoIterator<Item = F>,
